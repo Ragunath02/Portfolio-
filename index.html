@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ragunath | 3D Artist</title>
+
+    <meta name="description"
+        content="Portfolio of Ragunath, a 3D Artist specializing in photorealistic modeling, texturing, and rendering.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --amber: #ffda44;
+            --accent: #4ad1ff;
+            --heading: #fff9de;
+            --text: #e7e9f7;
+            --bg: #232327;
+            --card: #28282d;
+            --border: #33343a;
+            --yellow: #ffe066;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        nav {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-inner h2 {
+            color: var(--amber);
+        }
+
+        .menu a {
+            color: var(--heading);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        .menu a:hover {
+            color: var(--amber);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .home {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .home-text {
+            flex: 1;
+        }
+
+        .home-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .home-text span {
+            color: var(--amber);
+        }
+
+        .home-buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: var(--amber);
+            color: #232327;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .btn.outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .home-img img {
+            width: 320px;
+            border-radius: 15px;
+        }
+
+        .about,
+        .contact-card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        .about h2,
+        .portfolio-area h2 {
+            color: var(--amber);
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .skill {
+            background: var(--yellow);
+            color: #232327;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-card {
+            background: var(--card);
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .portfolio-card h4 {
+            color: var(--amber);
+            margin: 10px 0 5px;
+        }
+
+        .gallery-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 999;
+        }
+
+        .gallery-modal img {
+            max-width: 80%;
+            max-height: 70vh;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 35px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .gallery-controls {
+            margin-top: 15px;
+        }
+
+        .gallery-controls button {
+            padding: 8px 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .contact-title {
+            font-size: 1.4rem;
+            color: var(--amber);
+            margin-bottom: 10px;
+        }
+
+        .contact-highlight {
+            background: var(--yellow);
+            color: #232327;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .contact-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .contact-list li {
+            margin-bottom: 10px;
+        }
+
+        .contact-list a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container nav-inner">
+        <h2>Ragunath</h2>
+
+        <div class="menu">
+            <a href="#about">About</a>
+            <a href="#port">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<section id="home">
+    <div class="container home">
+
+        <div class="home-text">
+            <h1>Ragunath <span>3D Artist</span></h1>
+
+            <p>
+                Creating high-quality, photorealistic 3D models with a focus on realism and clean design.
+                <br><br>
+                3+ years experience • 400+ assets created for Amazon.
+            </p>
+
+            <div class="home-buttons">
+                <a href="#port" class="btn">View Portfolio</a>
+                <a href="Ragunath.pdf" class="btn">Download Resume</a>
+                <a href="#contact" class="btn outline">Contact</a>
+            </div>
+        </div>
+
+        <div class="home-img">
+            <img src="Ragu.png" alt="3D Model">
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="about">
+
+            <h2>About</h2>
+
+            <p>
+                With over three years of hands-on experience as a 3D Artist,
+                I create photorealistic assets for e-commerce and digital platforms.
+            </p>
+
+            <br>
+
+            <p>
+                My expertise includes precise modeling, detailed texturing,
+                and professional rendering using industry-standard tools.
+                I have contributed more than 400 high-quality assets for Amazon.
+            </p>
+
+            <div class="skills">
+                <span class="skill">3D Modeling</span>
+                <span class="skill">Rendering</span>
+                <span class="skill">Texturing</span>
+                <span class="skill">Digital Art</span>
+                <span class="skill">Creative Visualization</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="port">
+    <div class="container portfolio-area">
+
+        <h2>Portfolio</h2>
+
+        <div class="grid">
+
+            <div class="portfolio-card" onclick="openGallery(0)">
+                <img src="fan1.png" alt="Fan">
+                <h4>3D Fan Model</h4>
+                <p>Realistic fan design with detailed textures.</p>
+            </div>
+
+            <div class="portfolio-card" onclick="openGallery(1)">
+                <img src="drilling machine2.png" alt="Baby">
+                <h4>3D Drilling Machine Model</h4>
+                <p>Industrial power drill modeled with attention to mechanical accuracy.</p>
+            </div>
+
+            <div class="portfolio-card" onclick="openGallery(2)">
+                <img src="slipper2.png" alt="Mac">
+                <h4>3D Slipper Model</h4>
+                <p>Photorealistic product visualization.</p>
+            </div>
+
+            <div class="portfolio-card" onclick="openGallery(3)">
+                <img src="camara2.png" alt="Camera">
+                <h4>3D Camera Model</h4>
+                <p>Camera model with realistic materials.</p>
+            </div>
+
+            <div class="portfolio-card" onclick="openGallery(4)">
+                <img src="generator3.png" alt="Flower">
+                <h4>3D Generator Model</h4>
+                <p>Industrial generator recreated with accurate proportions and fine details.</p>
+            </div>
+
+            <div class="portfolio-card" onclick="openGallery(5)">
+                <img src="treadmil2.png" alt="Exercise">
+                <h4>3D Exercise Model</h4>
+                <p>Dynamic fitness pose and human anatomy study.</p>
+            </div> 
+            <div class="portfolio-card" onclick="openGallery(6)">
+                <img src="trallywithbag2.png" alt="Exercise">
+                <h4>3D Trally with bag Model</h4>
+                <p>Modern travel luggage designed with realistic materials and details.</p>
+            </div>
+            <div class="portfolio-card" onclick="openGallery(7)">
+                <img src="massagesofa3.png" alt="Exercise">
+                <h4>3D Exercise Model</h4>
+                <p>Focused on realistic rendering and healthcare product visualization.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+
+        <div class="contact-card">
+
+            <div class="contact-title">Contact Ragunath</div>
+
+            <p>Tiruchirappalli, Tamil Nadu, India</p>
+
+            <div class="contact-highlight">
+                Open to professional collaborations and exciting projects
+            </div>
+
+            <ul class="contact-list">
+                <li>📞 <a href="tel:+917339441225">+91 73394 41225</a></li>
+                <li>💬 <a href="https://wa.me/917339441225" target="_blank">Chat on WhatsApp</a></li>
+            </ul>
+
+            <p>
+                Feel free to reach out regarding opportunities,
+                project collaborations and portfolio requests.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<div class="gallery-modal" id="galleryModal">
+    <button class="close-btn" onclick="closeGallery()">×</button>
+    <img id="galleryImg" src="" alt="Gallery Image">
+
+    <div class="gallery-controls">
+        <button onclick="prevImg()">← Prev</button>
+        <button onclick="nextImg()">Next →</button>
+    </div>
+</div>
+
+<script>
+const galleries = [
+    ["fan1.png","fan2.png","fan3.png",],
+    ["drilling machine2.png","drilling machine1.png","drilling machine3.png","drilling machine4.png","drilling machine5.png"],
+    ["slipper2.png","slipper1.png","slipper3.png","slipper4.png"],
+    ["camara2.png","camara1.png","camara3.png"],
+    ["generator3.png","generator1.png","generator2.png"],
+    ["treadmil2.png","treadmil1.png","treadmil3.png"],
+    ["trallywithbag2.png","trallywithbag1.png","trallywithbag3.png","trallywithbag4.png"],
+    ["massagesofa3.png","massagesofa1.png","massagesofa2.png"]
+];
+
+let currentGallery = [];
+let currentImg = 0;
+
+function openGallery(index) {
+    currentGallery = galleries[index];
+    currentImg = 0;
+    showImage();
+    document.getElementById("galleryModal").style.display = "flex";
+}
+
+function showImage() {
+    document.getElementById("galleryImg").src =
+        currentGallery[currentImg];
+}
+
+function nextImg() {
+    currentImg = (currentImg + 1) % currentGallery.length;
+    showImage();
+}
+
+function prevImg() {
+    currentImg =
+        (currentImg - 1 + currentGallery.length) %
+        currentGallery.length;
+    showImage();
+}
+
+function closeGallery() {
+    document.getElementById("galleryModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
